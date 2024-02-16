@@ -1,0 +1,67 @@
+ // JavaScript code in script.js
+ alert("Wake up!!!!!!!!!! You are now in a middle of fight!!!");
+ alert("You are now fighting the greatest computer!!! The Computer");
+ alert("The Fight is JaJankken Poy");
+ alert("Win this!!!!!! Ilove you! Babe!!!")
+ // Function to get computer's choice
+ function getComputerChoice() {
+     const choices = ['Rock', 'Paper', 'Scissors'];
+     const randomIndex = Math.floor(Math.random() * 3);
+     return choices[randomIndex];
+ }
+ 
+ // Function to play a single round
+ function playRound(playerSelection, computerSelection) {
+     playerSelection = playerSelection.toLowerCase(); // Make player selection case-insensitive
+     if (playerSelection === computerSelection.toLowerCase()) {
+         return "It's a tie!";
+     } else if (
+         (playerSelection === 'rock' && computerSelection.toLowerCase() === 'scissors') ||
+         (playerSelection === 'paper' && computerSelection.toLowerCase() === 'rock') ||
+         (playerSelection === 'scissors' && computerSelection.toLowerCase() === 'paper')
+     ) {
+         return `You Win! ${playerSelection} beats ${computerSelection}`;
+     } else {
+         return `You Lose! ${computerSelection} beats ${playerSelection}`;
+     }
+ }
+ 
+ // Function to play the game
+ function playGame() {
+     let playerScore = 0;
+     let computerScore = 0;
+     
+     for (let i = 0; i < 5; i++) {
+         const playerSelection = prompt("Enter your choice (Rock, Paper, or Scissors):");
+         const computerSelection = getComputerChoice();
+         const result = playRound(playerSelection, computerSelection);
+         
+         console.log(result);
+ 
+         if (result.startsWith("You Win!")) {
+             playerScore++;
+         } else if (result.startsWith("You Lose!")) {
+             computerScore++;
+         }
+     }
+ 
+     console.log(`Game Over! Final Scores - You: ${playerScore}, Computer: ${computerScore}`);
+ 
+     if (playerScore > computerScore) {
+         // console.log("Congratulations! You win the game!");
+         alert("Congratulations! You win the game!");
+         alert("You did a great job, you got good mind games!!");
+         alert("Be humble in game and to a oppenent! and Grow more knights");
+     } else if (playerScore < computerScore) {
+         alert("Oops! You lost the game.");
+         alert("But don't worry, its just one lost, there are many more battle to polish you!!");
+         alert("You are like a sword. the sword need to go through in fire many times, to be polish and to use in the battle!!");
+     } else {
+         alert("It's a tie! No winner.");
+         alert("You both Good, the passion that you give in the is eminent!!!!!!")
+     }
+ }
+ 
+ alert("Look the score on the console")
+ // Start the game
+ playGame();
